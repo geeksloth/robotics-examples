@@ -1,7 +1,7 @@
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x27,20,4);
+LiquidCrystal_I2C lcd(0x27,16,2);
 
 void setup() {
   Serial.begin(9600);
@@ -15,8 +15,8 @@ void setup() {
 
 void loop() {
   if (Serial.available()) {
-    lcd.setCursor(0,0);
     String msg = Serial.readString();
+    lcd.setCursor(0,0);
     lcd.print(msg);
   }
 }
